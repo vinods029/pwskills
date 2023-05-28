@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do list</title>
+</head>
+<body>
+
+    <h1>To do list of the day</h1>
+ 
+    <input id="text" type="text">
+    <input id="btn" onclick="update()" type="submit">
+    <ul id="item"></ul>
+    
+</body>
+<script>
+    
+    
+
+    function update(){
+        const input = document.getElementById("text");
+        const todoList = document.getElementById("item");
+        const newItem = document.createElement("li");
+        newItem.textContent = input.value;
+        todoList.appendChild(newItem)    
+    
+
+    }
+    
+    
+</script>
+</html>
