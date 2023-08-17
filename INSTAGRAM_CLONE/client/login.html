@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <style>
+        body {
+            display: flex; 
+            justify-content: center;
+            align-items: center ; 
+            background-color: #fafafa ; 
+            height:100vh; 
+            margin:0px; 
+            margin-top: 40px; 
+            overflow: hidden;
+            background-color: #fafafa;
+            font-family: Arial, sans-serif;
+
+        }
+
+       .main-con {
+        padding-top: 60px ;
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        height: 60vh;
+
+        }
+
+        .left {
+            height: 700px; 
+            width: 430px; 
+            background-image: url(https://static.cdninstagram.com/images/instagram/xig/homepage/phones/home-phones.png?__makehaste_cache_breaker=HOgRclNOosk); 
+            background-repeat: no-repeat;
+
+        }
+
+        .left img {
+            position: relative; 
+            top: 28px; 
+            left:155px
+        }
+
+        .right {
+            height: 700px; 
+            width: 430px; 
+
+        }
+
+        .right img {
+            position: relative; 
+            height: 200px; 
+            width:200; 
+            left: 100px;
+            margin-bottom: 20px;
+
+        }
+
+        .form {
+            margin-bottom: 20px;
+            margin-left: 40px;
+          
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+        .btn {
+          display: block;
+          margin-left: 39px;
+          width: 96%;
+          color: #fff;
+          padding: 10px;
+          text-align: center;
+          font-size: 16px;
+          font-weight: bold;
+          background-color: #3987f0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #357ae8;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .links a {
+            color: rgb( 0, 55, 107);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        h2 {
+            margin-left: 20px;
+        }
+
+    </style>
+</head>
+<body >
+    <div class="main-con">
+        <div class="left">
+    
+    <img src="./insta-cover.png" alt="phone-image">
+    </div>
+        <div class="right">
+            <div>
+                <img src="insta-logo.png"  alt="inatgram-logo">
+            </div>
+            <form >
+                <div class="form">
+                    <label for="Username">Username</label>
+                    <input type="text" id="Username" name="Username" placeholder="Enter your user name">
+                </div>
+                <div class="form">
+                    <label for="Password">Password</label>
+                    <input type="password" id="Password" name="Password" placeholder="Enter your Password">
+                </div>
+                <button id="Submit" type="submit" class=" btn">Login</button>
+            </form>
+
+            <div class="links">
+                <a href="#">Forgot Password</a>
+                <h2>Don't have an account ? click below 👇 to create one</h2>
+                <a href="./register.html"> Sign Up</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+    const formSubmit = document.getElementById("submit")
+    formSubmit.addEventListener("click", (event)=>{
+        event.preventDefault();
+
+        const userName = document.getElementById("Username").value
+        const userPassword = document.getElementById("Password").value
+        const userData = {
+            username : userName,
+            password :  userPassword
+        }
+
+        loginUser(userData)
+
+        const loginUser = async (payload) =>{
+            try {
+                const resp = await fetch("http://localhost:3000/login",{
+                    method:"POST",
+                    credentials:"include",
+                    redirect:"follow",
+                    headers:{"content-type": "application/json"},
+                    body:JSON.stringyfy(payload)
+                })
+
+                const data = await resp.json();
+                console.log(data);
+                window.location.href="http://localhost:4000/client/index.html" 
+                
+            } catch (error) {
+                console.log(error.message);
+            }
+        }
+
+    })
+
+</script>
+</html>
