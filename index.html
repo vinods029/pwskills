@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWSkills Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+    <h1>PWSkills Blog</h1>
+    <a href="" id="addBlogButton"><b>+</b></a>
+    </header>
+
+    <main>
+        <section id="BlogList">
+            <!-- Blogs to be displayed here -->
+        </section>
+    </main>
+
+    <div id="addBlogModal" style="display:none ;">
+            <span class="close" id="closeModel" >&times;</span>
+            <h2>Add a New Blog</h2>
+            <form id="blogForm">
+                <input type="text" id="blogUrl"  placeholder="Enter Blog Post URL:" required>
+                <input type="text" id="blogTitle" placeholder="Enter Blog Title:" required>
+                <input type="text" id="blogDescription" placeholder="Enter Blog Description:" required>
+                <input type="text" id="blogWrite" placeholder="Write" required>
+                <button type="button" id="submitBlogButton">Submit</button>
+            </form>
+
+    </div>
+
+    <script>
+        const addBlogButton = document.getElementById("addBlogButton")
+        const closeModel = document.getElementById("closeModel")
+        const addBlogModal = document.getElementById("addBlogModal")
+        const blogForm = document.getElementById("blogForm")
+        const submitBlogButton = document.getElementById("submitBlogButton")
+
+
+        // Open the modal when + is clicked
+        addBlogButton.addEventListener("click",()=>{
+            addBlogModal.style.display="block";
+
+        })
+
+        // Close modal with x sign
+
+        closeModel.addEventListener("click",()=>{
+            addBlogModal.style.display="none"
+        })
+
+
+
+        //Handle form submission
+
+        submitBlogButton.addEventListener("click",()=>{
+
+        const url = document.getElementById("blogUrl").value
+        const title = document.getElementById("blogTitle").value
+        const Description = document.getElementById("blogDescription").value
+        const write = document.getElementById('blogWrite').value
+
+        const blogPost = {
+            url,
+            title,
+            Description,
+            write
+        };
+
+        // close form after submission
+        addBlogModal.style.display="none";
+        
+        // clearing for next entry
+        blogForm.reset();
+        
+
+        })
+
+        
+
+     
+
+        
+
+    
+        
+    </script>
+    
+</body>
+</html>
