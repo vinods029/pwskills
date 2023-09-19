@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PWSkills Blog</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>PWSkills Blog</h1>
+      <button id="addBlogButton">+</button>
+    </header>
+
+    <main>
+      <section id="BlogList">
+        <!-- Blogs to be displayed here -->
+      </section>
+    </main>
+
+    <div id="addBlogModal">
+      <button id="closeModel">&times;</button>
+
+      <form id="blogForm">
+        <h2>Add a New Blog</h2>
+        <div>
+          <input
+            type="text"
+            class="wide"
+            id="blogUrl"
+            placeholder="Enter Blog Post URL:"
+            required
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            class="wide"
+            id="blogTitle"
+            placeholder="Enter Blog Title:"
+            required
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            class="wide"
+            id="blogDescription"
+            placeholder="Enter Blog Description:"
+            required
+          />
+        </div>
+        <div>
+          <h2>Upload an image</h2>
+          <input type="file" id="blogImage" accept="image/*" required />
+        </div>
+        <div>
+          <input
+            type="text"
+            class="extra-wide"
+            id="blogWrite"
+            placeholder="Write"
+            required
+          />
+        </div>
+        <div>
+          <button type="button" id="submitBlogButton">Submit</button>
+        </div>
+      </form>
+    </div>
+
+
+  </body>
+  <script src="script.js"></script>
+</html>

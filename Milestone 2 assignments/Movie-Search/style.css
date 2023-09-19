@@ -1,0 +1,87 @@
+body{  margin: 0;
+    padding: 0;
+    background-color: rgb(4, 4, 33);
+    color: white;
+}
+
+.top-container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.top-container > * {
+    margin: 10px;
+}
+
+.top-container input {
+    background-color: white;
+    color: black;
+    height: 40px;
+    width: 600px;
+    outline: none;
+   
+}
+
+button {
+    width: 150px;
+    height: 40px;
+    background-color: red;
+    border-radius: 9px;
+    font-weight: bolder;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+img{
+    height: 250px;
+    width: 250px;
+    border-radius: 2rem;
+}
+
+/* Result div */
+
+.main-div{
+    width: 100%;
+    display: flex;
+    overflow:auto;  
+    flex-wrap: wrap;
+    justify-content: space-around;
+   
+}
+
+
+/* movie tab */
+
+.movieDiv{
+    margin-bottom: 20px;
+    height: 400px;
+    max-width: calc(20% - 20px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+ 
+
+}
+
+
+
+/* for movies without poster  */
+
+.blank{
+    background-color: white;
+}
+
+/* When there is no result */
+.not-found{
+    color: white;
+}
